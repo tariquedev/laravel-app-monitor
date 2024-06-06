@@ -1,0 +1,37 @@
+{
+    "name": "tarique/laravel-app-monitor",
+    "type": "library",
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^11.0"
+    },
+    "license": "MIT",
+    "homepage": "https://github.com/tariquedev/laravel-app-monitor",
+    "autoload": {
+        "psr-4": {
+            "Tarique\\LaravelAppMonitor\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tarique\\LaravelAppMonitor\\AppMonitorServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Tarique Hasan",
+            "email": "tariquehasan19@gmail.com"
+        }
+    ],
+    "description": "A Laravel package to monitor application downtime and server errors, and send email notifications",
+    "keywords": [
+        "tariquedev",
+        "laravel",
+        "laravel-errors",
+        "laravel-app-monitor",
+        "Tarique-Hasan"
+    ]
+}

@@ -1,9 +1,8 @@
-```markdown
-# Laravel App Monitor
+### Laravel App Monitor
 
 Laravel App Monitor is a package designed to monitor specific HTTP errors in your Laravel application and notify administrators via email. It helps ensure that critical errors (like 500, 502, 503, 504, 413) are promptly reported, allowing administrators to take appropriate action.
 
-## Installation
+### Installation
 
 You can install the Laravel App Monitor package via Composer. Run the following command in your terminal:
 
@@ -90,4 +89,3 @@ If you encounter any issues or have questions about using Laravel App Monitor, p
 ## License
 
 Laravel App Monitor is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-```

@@ -18,13 +18,16 @@ class AppMonitorServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/Config/appmonitor.php' => config_path('appmonitor.php'),
-        ], 'config');
+            __DIR__ . '/Jobs/SendMonitorErrorNotification.php' => app_path('Jobs/SendMonitorErrorNotification.php'),
+        ],'config');
         $this->publishes([
             __DIR__ . '/Resources/views/error_email.blade.php' => resource_path('views/vendor/appmonitor/error_email.blade.php'),
         ], 'views');
 
         $this->loadViewsFrom(__DIR__ . '/Resources/views', 'appmonitor');
-        $this->registerHttpErrorHandling();
+        if (config('appmonitor.notify_on_error')) {
+            $this->registerHttpErrorHandling();
+        }
     }
 
     protected function registerHttpErrorHandling()

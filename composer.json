@@ -1,7 +1,7 @@
 {
     "name": "tarique/laravel-app-monitor",
     "type": "library",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "require": {
         "php": "^8.2",
         "laravel/framework": "^11.0"

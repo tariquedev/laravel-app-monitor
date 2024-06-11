@@ -15,10 +15,10 @@ composer require tarique/laravel-app-monitor
 To customize settings such as email recipients or error notifications, publish the configuration file:
 
 ```bash
-php artisan vendor:publish --provider="Tarique\\LaravelAppMonitor\\AppMonitorServiceProvider" --tag=config
+php artisan vendor:publish --provider="Tarique\LaravelAppMonitor\AppMonitorServiceProvider" --tag=config
 ```
 
-This will copy the configuration file to `config/appmonitor.php`.
+This will copy the configuration file to `config/appmonitor.php` and `app\Jobs\SendMonitorErrorNotification.php`.
 
 ### Environment Configuration
 
@@ -40,8 +40,10 @@ Ensure that error notifications are enabled in the `config/appmonitor.php` file:
 
 ```php
 return [
-    'admin_email' => env('ADMIN_EMAIL'),
-    'notify_on_error' => true,
+    'admin_email' => env('APPMONITOR_ADMIN_EMAIL', 'admin@example.com'),
+    'notify_on_down' => env('APPMONITOR_NOTIFY_ON_DOWN', true),
+    'notify_on_error' => env('APPMONITOR_NOTIFY_ON_ERROR', true),
+    'error_codes' => [500, 502, 503, 504, 413],
 ];
 ```
 
@@ -50,7 +52,7 @@ return [
 If you want to customize the email template used for error notifications, you can publish the default template:
 
 ```bash
-php artisan vendor:publish --provider="Tarique\\LaravelAppMonitor\\AppMonitorServiceProvider" --tag=views
+php artisan vendor:publish --provider="Tarique\LaravelAppMonitor\AppMonitorServiceProvider" --tag=views
 ```
 
 This will copy the default email template to `resources/views/vendor/appmonitor/error_email.blade.php`, where you can modify it to suit your needs.
